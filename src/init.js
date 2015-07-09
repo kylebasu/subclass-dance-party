@@ -28,6 +28,25 @@ $(document).ready(function(){
       Math.random() * 1000
     );
     $('body').append(dancer.$node);
+
   });
+  
+  $('#lineUpButton').on("click", function(){
+    numOfElements = $('span').length;
+
+    var spaceTaken = 100/numOfElements;
+
+    for (var i = 0; i < numOfElements; i++){
+      $('span').css({
+        'top': '50%',
+        'left': spaceTaken + '%'
+      });
+      spaceTaken += spaceTaken;
+
+    }
+
+
+  })
 });
 
+//spans

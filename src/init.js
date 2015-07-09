@@ -28,20 +28,17 @@ $(document).ready(function(){
       Math.random() * 1000
     );
     $('body').append(dancer.$node);
-
+    dancers.push(dancer);
   });
   
-  $('#lineUpButton').on("click", function(){
-    numOfElements = $('span').length;
-
-    var spaceTaken = 100/numOfElements;
-
+  $('.lineup').on("click", function(){
+    numOfElements = window.dancers.length;
+    var bodySize = $('body').height() /2
+    var spaceTaken = $('body').width() / numOfElements - 1;
+    var totalSpace = 0;
     for (var i = 0; i < numOfElements; i++){
-      $('span').css({
-        'top': '50%',
-        'left': spaceTaken + '%'
-      });
-      spaceTaken += spaceTaken;
+      window.dancers[i].setPosition(bodySize, totalSpace);
+      totalSpace += spaceTaken;
 
     }
 
